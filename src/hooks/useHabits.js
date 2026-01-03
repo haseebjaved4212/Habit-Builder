@@ -26,15 +26,16 @@ export function useHabits() {
         setHabits(prev => [...prev, newHabit]);
     };
 
-    const toggleHabit = (id) => {
-        const today = new Date().toISOString().split('T')[0];
+    const toggleHabit = (id, date = null) => {
+        const targetDate = date || new Date().toISOString().split('T')[0];
+
         setHabits(prev => prev.map(habit => {
             if (habit.id !== id) return habit;
 
-            const isCompleted = habit.completedDates.includes(today);
+            const isCompleted = habit.completedDates.includes(targetDate);
             const newCompletedDates = isCompleted
-                ? habit.completedDates.filter(d => d !== today)
-                : [...habit.completedDates, today];
+                ? habit.completedDates.filter(d => d !== targetDate)
+                : [...habit.completedDates, targetDate];
 
             return { ...habit, completedDates: newCompletedDates };
         }));

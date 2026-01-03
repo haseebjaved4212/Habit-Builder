@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StatsView } from './StatsView';
+import { HabitGrid } from './HabitGrid';
 
 export function HabitItem({ habit, onToggle, getStats, onDelete }) {
     const today = new Date().toISOString().split('T')[0];
@@ -18,10 +19,12 @@ export function HabitItem({ habit, onToggle, getStats, onDelete }) {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     borderColor: isCompleted ? 'var(--color-accent)' : 'var(--color-border)',
-                    boxShadow: isCompleted ? '0 0 15px var(--color-accent-glow)' : 'none'
+                    boxShadow: isCompleted ? '0 0 15px var(--color-accent-glow)' : 'none',
+                    flexWrap: 'wrap',
+                    gap: '1rem'
                 }}>
 
-                <div className="habit-info">
+                <div className="habit-info" style={{ flex: 1, minWidth: '200px' }}>
                     <h3 style={{
                         fontSize: '1.2rem',
                         fontWeight: 600,
@@ -44,6 +47,10 @@ export function HabitItem({ habit, onToggle, getStats, onDelete }) {
                 >
                     {isCompleted ? 'Completed' : 'Do it'}
                 </button>
+
+                <div style={{ width: '100%', marginTop: '0.5rem' }}>
+                    <HabitGrid habit={habit} onToggle={onToggle} />
+                </div>
             </div>
 
             {stats.showMonthlyStats && (

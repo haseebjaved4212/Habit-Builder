@@ -167,3 +167,35 @@ input[type="text"]:focus {
     transform: translateY(0);
   }
 }
+
+/* 30-Day Grid */
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 4px;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .habit-grid {
+    grid-template-columns: repeat(30, 1fr);
+  }
+}
+
+.grid-box {
+  aspect-ratio: 1;
+  background-color: var(--color-surface-hover);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.grid-box:hover {
+  background-color: #404040;
+  transform: scale(1.2);
+}
+
+.grid-box.completed {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent-glow);
+}
