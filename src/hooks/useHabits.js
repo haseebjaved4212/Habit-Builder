@@ -17,11 +17,12 @@ export function useHabits() {
 
     const addHabit = (name) => {
         if (!name.trim()) return;
+
         const newHabit = {
             id: crypto.randomUUID(),
             name: name.trim(),
             createdAt: new Date().toISOString(),
-            completedDates: [] // Array of "YYYY-MM-DD" strings
+            completedDates: []
         };
         setHabits(prev => [...prev, newHabit]);
     };

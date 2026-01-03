@@ -1,4 +1,5 @@
 import { HabitGrid } from './HabitGrid';
+import { StatsView } from './StatsView';
 
 export function HabitItem({ habit, onToggle, getStats, onDelete }) {
     const stats = getStats(habit);
@@ -87,19 +88,25 @@ export function HabitItem({ habit, onToggle, getStats, onDelete }) {
             </div>
 
             {/* Footer */}
-            <div style={{
-                border: '1px dashed #404040',
-                borderRadius: '16px',
-                padding: '12px',
-                textAlign: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                color: 'var(--color-text-secondary)',
-                fontSize: '0.9rem'
-            }}>
-                <span>🕒</span> Full stats unlock after day 30
+            <div style={{ marginTop: '1.5rem' }}>
+                {stats.showMonthlyStats ? (
+                    <StatsView stats={stats} habitName={habit.name} />
+                ) : (
+                    <div style={{
+                        border: '1px dashed #404040',
+                        borderRadius: '16px',
+                        padding: '12px',
+                        textAlign: 'center',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        color: 'var(--color-text-secondary)',
+                        fontSize: '0.9rem'
+                    }}>
+                        <span>🕒</span> Full stats unlock after day 30
+                    </div>
+                )}
             </div>
 
         </div>
