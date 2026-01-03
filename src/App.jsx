@@ -1,15 +1,21 @@
 import { useState } from 'react'
+import { useHabits } from './hooks/useHabits'
+import { HabitList } from './components/HabitList'
 
 function App() {
+  const { habits, addHabit, toggleHabit, deleteHabit, getHabitStats } = useHabits();
+
   return (
     <div className="app-container fade-in">
       <h1>Habit Builder</h1>
 
-      {/* Components will go here */}
-      <div className="card">
-        <p style={{ textAlign: 'center' }}>My Habits will appear here.</p>
-      </div>
-
+      <HabitList
+        habits={habits}
+        addHabit={addHabit}
+        toggleHabit={toggleHabit}
+        deleteHabit={deleteHabit}
+        getHabitStats={getHabitStats}
+      />
     </div>
   )
 }

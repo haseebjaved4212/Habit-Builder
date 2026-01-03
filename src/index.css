@@ -65,6 +65,7 @@ h1 {
   letter-spacing: -0.05em;
   margin-bottom: var(--space-md);
   background: linear-gradient(to right, #fff, #a1a1aa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
