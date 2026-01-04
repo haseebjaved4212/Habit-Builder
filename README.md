@@ -86,4 +86,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-
+- © 2025 `Haseeb Javed.` All rights reserved.
